@@ -13,6 +13,7 @@ function cleanDist() {
 
 function createReadmePackageJson() {
   fs.copyFileSync(path.join(path.resolve(), 'README.md'), path.join(buildDirectory, 'README.md'))
+  fs.copyFileSync(path.join(path.resolve(), 'README.md'), path.join(buildDirectory, 'README.md'))
   fs.writeFileSync(
     path.join(buildDirectory, 'package.json'),
     JSON.stringify(
