@@ -52,8 +52,6 @@ Run the following script to ensure Git sees the directory.
 git config core.hooksPath ./node_modules/jml-config/git-hooks
 ```
 
-### Customing Git Hooks
-
 To ensure other users have the hooks installed, you can add this to package.json scripts object. Keep in mind, this will only run when they install packages.
 
 ```json
@@ -62,7 +60,9 @@ To ensure other users have the hooks installed, you can add this to package.json
 }
 ```
 
-Any new Git Hook files must be marked as executable. On MACOS you can run the following within the git hooks directory.
+### Customing Git Hooks
+
+Any new Git Hook files added to this repo must be marked as executable. On MACOS you can run the following within the git hooks directory.
 
 ```bash
 chmod +x prepare-commit-msg
