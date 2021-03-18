@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
+          scope: '@jml'
       - run: npm i
       - run: npm run build
       - run: cd lib
