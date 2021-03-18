@@ -37,12 +37,19 @@ cleanDist()
 
 createReadmePackageJson()
 
-export default {
-  input: path.join(path.resolve(), 'src/index.js'),
+const inputs = [
+  'src/lintJs/eslint-config-js.js',
+  'src/lintJs/eslint-config-react.js',
+  'src/prettier/prettier.js',
+]
+
+export default inputs.map((input) => ({
+  input: path.join(path.resolve(), input),
   output: {
-    file: path.join(path.resolve(), 'lib/index.js'),
+    exports: 'auto',
     format: 'cjs',
     sourcemap: true,
+    dir: path.join(path.resolve(), 'lib'),
   },
   plugins: [terser()],
-}
+}))

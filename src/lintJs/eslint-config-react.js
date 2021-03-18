@@ -1,9 +1,9 @@
-import lintBase from './lintJsBase'
+import eslintBase from './eslint-config-base'
 
 const lintJsReact = {
   extends: ['react-app'],
   rules: {
-    ...lintBase.rules,
+    ...eslintBase.rules,
     'no-console': 1,
     'no-debugger': 1,
     'react/default-props-match-prop-types': 1,

@@ -1,7 +1,7 @@
-import lintBase from './lintJsBase'
+import eslintBase from './eslint-config-base'
 
 const lintJs = {
-  ...lintBase,
+  ...eslintBase,
   extends: ['eslint:recommended'],
 }
 
