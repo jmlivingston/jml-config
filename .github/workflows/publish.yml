@@ -15,5 +15,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm i
       - run: npm run build
-      - run: cd build
-      - run: cd build && npm publish
+      - run: cd lib
+      - run: cd lib && npm publish
+        env: NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
