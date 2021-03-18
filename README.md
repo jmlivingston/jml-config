@@ -1,6 +1,6 @@
 # jml-config
 
-Base configurations for JavaScript, React, and Prettier.
+Base configurations for JavaScript, React, and Prettier
 
 ## Installation
 
@@ -42,7 +42,7 @@ Add the following to .prettierrc.js
 
 ```javascript
 module.exports = {
-  ...require("@jml/config/prettier"),
+  ...require('@jml/config/prettier'),
   semi: false,
-};
+}
 ```
