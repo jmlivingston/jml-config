@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+// Prepends commit message with Jira Issue if in branch name and if not already prepended in commit message.
+// Assumes the branch name has a Jira issue number (i.e., FOO-123).
+
+const fs = require('fs')
+const path = require('path')
+
+function getCurrentBranch() {
+  const headFilePath = path.join(path.resolve(), '.git/HEAD')
+  let currentBranch = fs.readFileSync(headFilePath).toString().trim()
+  return currentBranch
+}
+
+function getIssue() {
+  const branchName = getCurrentBranch()
+  const branchRegex = /\/([a-zA-Z]{2,4}-[0-9]+){1}/gi
+  const commitPrefixArr = branchName.match(branchRegex) || ''
+  const issue = commitPrefixArr.length > 0 ? commitPrefixArr[0].slice(1).toUpperCase() : ''
+  return issue
+}
+
+function prependCommitMessageWithIssue() {
+  const commitMessageFile = process.argv[2]
+  let commitMessage = fs.readFileSync(commitMessageFile, 'utf8').trim()
+  const issue = getIssue()
+  if (!!issue && !commitMessage.startsWith(issue)) {
+    commitMessage = `${!!issue ? `${issue} - ` : ''}${commitMessage}\n`
+    fs.writeFileSync(commitMessageFile, commitMessage)
+  }
+  process.exit(0)
+}
+
+try {
+  prependCommitMessageWithIssue()
+} catch (error) {
+  console.log(`Error updating commit message: ${error}`)
+}
