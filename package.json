@@ -1,6 +1,6 @@
 {
   "name": "jml-config",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Base configurations for JavaScript, React, and Prettier",
   "main": "lib/index.js",
   "license": "ISC",
