@@ -1,18 +1,20 @@
-import fs from 'fs'
+import fs from 'fs-extra'
 import path from 'path'
-import rimraf from 'rimraf'
 import { terser } from 'rollup-plugin-terser'
 import packageJson from '../package.json'
 
 const buildDirectory = path.join(path.resolve(), 'lib')
 
 function cleanDist() {
-  rimraf.sync(buildDirectory)
+  fs.removeSync(buildDirectory)
   fs.mkdirSync(buildDirectory)
 }
 
 function createReadmePackageJson() {
-  fs.copyFileSync(path.join(path.resolve(), 'README.md'), path.join(buildDirectory, 'README.md'))
+  fs.copyFileSync(
+    path.join(path.resolve(), 'package-lock.json'),
+    path.join(buildDirectory, 'package-lock.json')
+  )
   fs.copyFileSync(path.join(path.resolve(), 'README.md'), path.join(buildDirectory, 'README.md'))
   fs.writeFileSync(
     path.join(buildDirectory, 'package.json'),
@@ -34,13 +36,22 @@ function createReadmePackageJson() {
   )
 }
 
+function copyGitHooks() {
+  fs.copySync(
+    path.join(path.resolve(), 'src/git-hooks'),
+    path.join(path.resolve(), 'lib/git-hooks')
+  )
+}
+
 cleanDist()
 
 createReadmePackageJson()
 
+copyGitHooks()
+
 const inputs = [
-  'src/lintJs/eslint-config-js.js',
-  'src/lintJs/eslint-config-react.js',
+  'src/lint-js/eslint-config-js.js',
+  'src/lint-js/eslint-config-react.js',
   'src/prettier/prettier.js',
 ]
 
