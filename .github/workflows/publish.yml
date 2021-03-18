@@ -17,7 +17,7 @@ jobs:
       - run: npm i
       - run: npm run build
       - name: Publish
-          working-directory: lib
-          run: npm publish
-          env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        working-directory: lib
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
