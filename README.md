@@ -4,7 +4,7 @@ Base configurations for JavaScript, React, and Prettier
 
 ## Installation
 
-`npm i @jml/config -D`
+`npm i jml-config -D`
 
 > Note: Be sure to add any peer dependencies.
 
@@ -19,7 +19,7 @@ Add the following to the base of package.json or within an estlintrc.json
 ```json
 "eslintConfig": {
     "extends": [
-      "./node_modules/@jml/config/eslint-config-js"
+      "./node_modules/jml-config/eslint-config-js"
     ]
 }
 ```
@@ -31,7 +31,7 @@ Add the following to the base of package.json or within an estlintrc.json
 ```json
 "eslintConfig": {
     "extends": [
-      "./node_modules/@jml/config/eslint-config-react"
+      "./node_modules/jml-config/eslint-config-react"
     ]
 }
 ```
@@ -41,5 +41,5 @@ Add the following to the base of package.json or within an estlintrc.json
 Add the following to package.json or .prettierrc.js
 
 ```javascript
-"prettier": "./node_modules/@jml/config/prettier"
+"prettier": "./node_modules/jml-config/prettier"
 ```
