@@ -18,7 +18,7 @@ function createReadmePackageJson() {
     path.join(buildDirectory, 'package.json'),
     JSON.stringify(
       {
-        name: '@jml/config',
+        name: packageJson.name,
         description: packageJson.description,
         version: packageJson.version,
         author: packageJson.author,
