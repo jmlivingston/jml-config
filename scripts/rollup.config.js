@@ -11,10 +11,6 @@ function cleanDist() {
 }
 
 function createReadmePackageJson() {
-  // fs.copyFileSync(
-  //   path.join(path.resolve(), 'package-lock.json'),
-  //   path.join(buildDirectory, 'package-lock.json')
-  // )
   fs.copyFileSync(path.join(path.resolve(), 'README.md'), path.join(buildDirectory, 'README.md'))
   fs.writeFileSync(
     path.join(buildDirectory, 'package.json'),
